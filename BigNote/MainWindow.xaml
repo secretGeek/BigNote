@@ -13,9 +13,9 @@
         </Grid.ColumnDefinitions>    
             
         <Controls:AnimatingViewBox Margin="10" Grid.ColumnSpan="2">
-            <TextBox x:Name="mainTextBox" SelectionBrush="{StaticResource caret}" CaretBrush="{StaticResource caret}"  FontSize="60" Background="Transparent" BorderThickness="0" AcceptsReturn="True" Foreground="White">
+            <TextBox x:Name="mainTextBox" SelectionBrush="{StaticResource caret}" CaretBrush="{StaticResource caret}"  FontSize="60" Background="Transparent" BorderThickness="0" AcceptsReturn="True" Foreground="Black">
                 <TextBox.Effect>
-                    <DropShadowEffect Color="Blue" BlurRadius="2" Direction="0" ShadowDepth="0" />
+                    <DropShadowEffect Color="GreenYellow" BlurRadius="4" Direction="0" ShadowDepth="0" />
                 </TextBox.Effect>
             </TextBox>
         </Controls:AnimatingViewBox>
