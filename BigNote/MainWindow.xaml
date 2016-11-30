@@ -5,7 +5,38 @@
     <Window.Resources>
         <SolidColorBrush x:Key="caret" Color="#33666666" />
         <BigNote:SolidColorBrushConverter x:Key="cc" />
+
+        <Style TargetType="Button" x:Key="forwardBackButtons">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="TextBlock.TextAlignment" Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="3,3,3,3" Background="White" BorderBrush="#ccc" BorderThickness="2" >
+                            <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <RoutedUICommand x:Key="NavBack" Text="Navigate Back" />
+        <RoutedUICommand x:Key="NavForward" Text="Navigate Forward" />
+
     </Window.Resources>
+
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource NavBack}" 
+                    Executed="Prev_Click" />
+        <CommandBinding Command="{StaticResource NavForward}" 
+                    Executed="Next_Click" />
+    </Window.CommandBindings>
+
+    <Window.InputBindings>
+        <KeyBinding Key="Left" Modifiers="Alt" Command="{StaticResource NavBack}" />
+        <KeyBinding Key="Right" Modifiers="Alt" Command="{StaticResource NavForward}" />
+    </Window.InputBindings>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -91,7 +122,9 @@
             Width="36"
             Click="Prev_Click" 
             Height="26"
-            Grid.Column="1" />
+            Grid.Column="1" Style="{StaticResource forwardBackButtons}" >
+            
+        </Button>
         <Button Content="&gt;&gt;" 
             Height="26" 
             HorizontalAlignment="Right"
@@ -99,6 +132,6 @@
             VerticalAlignment="Top"
             Width="36"
             Grid.Column="1"
-            Click="Next_Click" />
+            Click="Next_Click" Style="{StaticResource forwardBackButtons}" />
     </Grid>
 </Window>
