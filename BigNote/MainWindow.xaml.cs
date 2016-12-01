@@ -139,7 +139,7 @@
             }
 
             //this.replacements = replacements ?? Replacement.CreateList("45.55.151.240`45.55.151.239,ddd-test-4`ddd-test-3");
-            this.replacements = replacements ?? Replacement.CreateList("45.55.151.240`45.55.151.239,138.197.25.125`138.197.29.193,ddd-test-4`ddd-test-3");
+            this.replacements = replacements ?? Replacement.CreateList("138.197.25.125`138.197.29.193");
 
             LoadSnippets(fileName);
             LoadReplacements(replacements);
